@@ -1,5 +1,13 @@
+import Hero from "../components/Hero";
+import Specials from "../components/Specials";
+
 function HomePage() {
-  return <div></div>;
+  return (
+    <main>
+      <Hero />
+      <Specials />
+    </main>
+  );
 }
 
 export default HomePage;

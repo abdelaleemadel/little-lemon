@@ -1,5 +1,6 @@
 function BookingPage() {
-  return <div></div>;
+  /*   const {isLoading, response, }
+   */ return <div></div>;
 }
 
 export default BookingPage;
