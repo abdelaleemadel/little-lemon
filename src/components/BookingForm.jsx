@@ -1,4 +1,10 @@
 import { useEffect, useState } from "react";
+import {
+  isValidDate,
+  isValidGuests,
+  isValidOccasion,
+  isValidTime,
+} from "../validation";
 
 function BookingForm({ availableTimes, dispatchTimes, submitForm }) {
   const todayDate = new Date().toISOString().slice(0, 10);
@@ -12,69 +18,85 @@ function BookingForm({ availableTimes, dispatchTimes, submitForm }) {
   const [number, setNumber] = useState("");
   const [occasion, setOccasion] = useState("Birthday");
 
+  /* Validate Date */
   useEffect(() => {
-    const validateForm = () => {
-      const newErrors = {};
-      /* Validate Date */
-      if (!date) {
-        newErrors.date = "Reservation Date is Required";
-      } else if (new Date(todayDate).getTime() > new Date(date).getTime()) {
-        newErrors.date = "Reservation Date can't be in the Past";
-      } else if (new Date(nextYear).getTime() < new Date(date).getTime()) {
-        newErrors.date = "Reservation is open for only a year from now";
+    const validateDate = () => {
+      const { isValid, error } = isValidDate(date, todayDate, nextYear);
+      console.log(isValid, error);
+      if (isValid) {
+        setErrors((prev) => {
+          const newState = { ...prev };
+          delete newState.date;
+          return newState;
+        });
+      } else if (!isValid) {
+        setErrors((prev) => ({ ...prev, date: error }));
       }
-
-      /* Validate Time */
-      if (!time) {
-        newErrors.time = "Reservation Time is Required";
-      } else if (availableTimes.indexOf(time) === -1) {
-        newErrors.time = "Reservation Time isn't available";
-      }
-
-      /* Validate Number of guests */
-      if (!number) {
-        newErrors.number = "Number of guests is Required";
-      } else if (!Number(number)) {
-        newErrors.nubmer = "Number of guests must be a number";
-      } else if (number < 1) {
-        newErrors.number = "Number of guests can't be less than 1";
-      } else if (number > 10) {
-        newErrors.number = "Number of guests can't be more than 10";
-      }
-
-      /* Validate Occasion */
-
-      if (!occasion) {
-        newErrors.occasion = "Occasion is Required";
-      } else if (
-        occasion !== "Birthday" &&
-        occasion !== "Anniversary" &&
-        occasion !== "Other"
-      ) {
-        newErrors.occasion = "Occasion must be Birthday, Anniversary or Other ";
-      }
-
-      setErrors(newErrors);
     };
 
-    validateForm();
-  }, [
-    date,
-    time,
-    number,
-    occasion,
-    todayDate,
-    availableTimes,
-    nextYear,
-    touched,
-  ]);
+    validateDate();
+  }, [date, todayDate, nextYear]);
 
+  /* Validate Times */
+  useEffect(() => {
+    const validateTime = () => {
+      const { isValid, error } = isValidTime(time, availableTimes);
+      console.log(isValid, error);
+      if (isValid) {
+        setErrors((prev) => {
+          const newState = { ...prev };
+          delete newState.time;
+          return newState;
+        });
+      } else if (!isValid) {
+        setErrors((prev) => ({ ...prev, time: error }));
+      }
+    };
+
+    validateTime();
+  }, [time, availableTimes]);
+
+  /* Validate Number of Guests */
+  useEffect(() => {
+    const validateGuests = () => {
+      const { isValid, error } = isValidGuests(number);
+      console.log(isValid, error);
+      if (isValid) {
+        setErrors((prev) => {
+          const newState = { ...prev };
+          delete newState.number;
+          return newState;
+        });
+      } else if (!isValid) {
+        setErrors((prev) => ({ ...prev, number: error }));
+      }
+    };
+    validateGuests();
+  }, [number]);
+  /* Validate Occasion */
+  useEffect(() => {
+    const validateOccasion = () => {
+      const { isValid, error } = isValidOccasion(occasion);
+      console.log(isValid, error);
+      if (isValid) {
+        setErrors((prev) => {
+          const newState = { ...prev };
+          delete newState.occasion;
+          return newState;
+        });
+      } else if (!isValid) {
+        setErrors((prev) => ({ ...prev, occasion: error }));
+      }
+    };
+    validateOccasion();
+  }, [occasion]);
   return (
     <form
       className="row"
       onSubmit={(e) => {
         e.preventDefault();
-        if (Object.keys(errors) === 0) {
+        console.log(errors);
+        if (Object.keys(errors).length === 0) {
           submitForm({ date, time, number, occasion });
         }
       }}
@@ -146,7 +168,7 @@ function BookingForm({ availableTimes, dispatchTimes, submitForm }) {
         <p className="text-danger">{errors.occasion}</p>
       )}
 
-      <button type="sumbit" disabled={Object.keys(errors).length !== 0}>
+      <button type="submit" disabled={Object.keys(errors).length !== 0}>
         Make your reservation
       </button>
     </form>
