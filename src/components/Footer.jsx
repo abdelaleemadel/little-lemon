@@ -1,7 +1,7 @@
 import Logo from "./../assests/Logo.svg";
 function Footer() {
   return (
-    <footer className="py-5 bg-first">
+    <footer className="py-5 bg-first w-100">
       <div className="container">
         <div className="row align-items-center  gy-5">
           <div className="col-6 col-lg-3 align-self-lg-start">

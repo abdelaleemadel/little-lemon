@@ -2,7 +2,6 @@ import { useReducer } from "react";
 import BookingForm from "../components/BookingForm";
 import { fetchAPI, submitAPI } from "../api";
 import { useNavigate } from "react-router";
-
 export const initializeTimes = () => {
   let res = fetchAPI(new Date());
   return res;
@@ -20,15 +19,13 @@ function BookingPage() {
   const navigate = useNavigate();
 
   function submitForm(formData) {
-    console.log(formData);
-
     if (submitAPI(formData)) {
-      navigate("/confirmed");
+      navigate("/confirmed", { state: formData });
     }
   }
 
   return (
-    <main>
+    <main className="flex-grow-1">
       <BookingForm
         availableTimes={availableTimes}
         dispatchTimes={dispatch}

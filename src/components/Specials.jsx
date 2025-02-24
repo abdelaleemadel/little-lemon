@@ -4,14 +4,14 @@ function Specials() {
   return (
     <div className="my-5">
       <div className="container">
-        <h2>Specials</h2>
-        <div className="my-5 row gx-5 gy-5 border boder-1 border-warning justify-content-center">
-          <div className="col-12 col-md-8 col-lg-7 col-xl-4  border boder-2 border-warning">
-            <div className="border boder-3  border-warning">
+        <h2 className="fs-1 fw-bold">Specials</h2>
+        <div className="my-5 row gx-5 gy-5  justify-content-center">
+          <div className="col-12 col-md-8 col-lg-7 col-xl-4 ">
+            <div>
               <img
                 src={Salad}
                 className="w-100 rounded rounded-5 rounded-bottom-0"
-                alt=""
+                alt="special-1"
               />
               <div className="bg-secondary-subtle overflow-auto px-5">
                 <div className="d-flex justify-content-between my-5">
@@ -26,18 +26,18 @@ function Specials() {
                 <button className="my-5">
                   Order Delievery{" "}
                   <span>
-                    <img src={Delivery} alt="" />
+                    <img src={Delivery} alt="delivery-icon" />
                   </span>
                 </button>
               </div>
             </div>
           </div>
-          <div className="col-12 col-md-8 col-lg-7 col-xl-4  border boder-2 border-warning">
-            <div className="border boder-3  border-warning">
+          <div className="col-12 col-md-8 col-lg-7 col-xl-4  ">
+            <div>
               <img
                 src={Salad}
                 className="w-100 rounded rounded-5 rounded-bottom-0"
-                alt=""
+                alt="special-2"
               />
               <div className="bg-secondary-subtle overflow-auto px-5">
                 <div className="d-flex justify-content-between my-5">
@@ -52,18 +52,18 @@ function Specials() {
                 <button className="my-5">
                   Order Delievery{" "}
                   <span>
-                    <img src={Delivery} alt="" />
+                    <img src={Delivery} alt="elivery-icon" />
                   </span>
                 </button>
               </div>
             </div>
           </div>
-          <div className="col-12 col-md-8 col-lg-7 col-xl-4  border boder-2 border-warning">
-            <div className="border boder-3  border-warning">
+          <div className="col-12 col-md-8 col-lg-7 col-xl-4 ">
+            <div>
               <img
                 src={Salad}
                 className="w-100 rounded rounded-5 rounded-bottom-0"
-                alt=""
+                alt="special-3"
               />
               <div className="bg-secondary-subtle overflow-auto px-5">
                 <div className="d-flex justify-content-between my-5">
@@ -78,7 +78,7 @@ function Specials() {
                 <button className="my-5">
                   Order Delievery{" "}
                   <span>
-                    <img src={Delivery} alt="" />
+                    <img src={Delivery} alt="delivery-icon" />
                   </span>
                 </button>
               </div>

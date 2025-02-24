@@ -9,9 +9,9 @@ import ConfirmedBooking from "./Pages/ConfirmedBooking";
 
 function App() {
   return (
-    <>
-      <Header />
+    <div className="min-vh-100 d-flex flex-column">
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/booking" element={<BookingPage />}></Route>
@@ -19,7 +19,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       <Footer />
-    </>
+    </div>
   );
 }
 

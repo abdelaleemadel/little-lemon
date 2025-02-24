@@ -10,7 +10,10 @@ function NavbarComponent() {
     <>
       <nav className="position-relative py-4">
         <div className="container overflow d-flex justify-content-between align-items-center ">
-          <img src={Logo} alt="logo" />
+          <Link to="/">
+            <img src={Logo} alt="logo" />
+          </Link>
+
           <img
             src={MenuIcon}
             alt="menu icon"

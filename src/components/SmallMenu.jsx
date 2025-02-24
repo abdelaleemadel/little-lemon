@@ -1,7 +1,11 @@
+import { Link } from "react-router";
 import CloseIcon from "./../assests/xmark-solid.svg";
 
 function SmallMenu({ openMenu, setOpenMenu }) {
   /*  */
+  function closeMenu() {
+    setOpenMenu(false);
+  }
   return (
     <ul
       className={`d-lg-none position-absolute  ${
@@ -16,12 +20,60 @@ function SmallMenu({ openMenu, setOpenMenu }) {
           onClick={() => setOpenMenu((prev) => !prev)}
         />
       </li>
-      <li className="list-group-item my-5">Home</li>
-      <li className="list-group-item my-5">About</li>
-      <li className="list-group-item my-5">Menu</li>
-      <li className="list-group-item my-5">Reservations</li>
-      <li className="list-group-item my-5">Order Online</li>
-      <li className="list-group-item my-5">Login</li>
+      <li className="list-group-item my-5 border">
+        <Link
+          className="text-decoration-none text-black"
+          onClick={closeMenu}
+          to="/"
+        >
+          Home
+        </Link>
+      </li>
+      <li className="list-group-item my-5">
+        <Link
+          className="text-decoration-none text-black"
+          onClick={closeMenu}
+          to="/"
+        >
+          About
+        </Link>
+      </li>
+      <li className="list-group-item my-5">
+        <Link
+          className="text-decoration-none text-black"
+          onClick={closeMenu}
+          to="/"
+        >
+          Menu
+        </Link>
+      </li>
+      <li className="list-group-item my-5">
+        <Link
+          className="text-decoration-none text-black"
+          onClick={closeMenu}
+          to="/booking"
+        >
+          Reservations
+        </Link>
+      </li>
+      <li className="list-group-item my-5">
+        <Link
+          className="text-decoration-none text-black"
+          onClick={closeMenu}
+          to="/"
+        >
+          Order Online
+        </Link>
+      </li>
+      <li className="list-group-item my-5">
+        <Link
+          className="text-decoration-none text-black"
+          onClick={closeMenu}
+          to="/"
+        >
+          Login
+        </Link>
+      </li>
     </ul>
   );
 }

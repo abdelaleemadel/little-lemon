@@ -16,28 +16,28 @@ import * as validationFunctions from "./validation";
 }); */
 /* ================================================================ */
 /* intializeTimes */
-/* jest.mock("./api.js", () => ({
+jest.mock("./api.js", () => ({
   ...jest.requireActual("./api.js"),
   fetchAPI: jest.fn(),
-})); */
+}));
 
-/* test("initialize items gives an array", () => {
+test("initialize items gives an array", () => {
   const mockTimes = ["timeA", "timeB", "timeC"];
   fetchAPI.mockReturnValue(mockTimes);
   const result = initializeTimes();
 
   expect(fetchAPI).toHaveBeenCalled();
   expect(result).toEqual(mockTimes);
-}); */
+});
 /* Update Times  */
-/* test("Update times returns available dates", () => {
+test("Update times returns available dates", () => {
   const mockTimes = ["timeA", "timeB", "timeC"];
   fetchAPI.mockReturnValue(mockTimes);
 
   const result = updateTimes(null, "2025-12-05");
   expect(fetchAPI).toHaveBeenCalled();
   expect(result).toEqual(mockTimes);
-}); */
+});
 
 /* */
 describe("Input's Attributes testing", () => {
