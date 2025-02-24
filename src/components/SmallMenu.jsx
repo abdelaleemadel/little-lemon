@@ -20,7 +20,7 @@ function SmallMenu({ openMenu, setOpenMenu }) {
           onClick={() => setOpenMenu((prev) => !prev)}
         />
       </li>
-      <li className="list-group-item my-5 border">
+      <li className="list-group-item my-5 ">
         <Link
           className="text-decoration-none text-black"
           onClick={closeMenu}

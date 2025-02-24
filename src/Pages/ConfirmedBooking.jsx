@@ -5,8 +5,8 @@ function ConfirmedBooking() {
   const { date, time, number, occasion } = location.state || {};
   return (
     <main className="flex-grow-1 d-flex flex-column justify-content-evenly">
-      <div className="d-flex justify-content-center flex-column alert alert-success container">
-        <h2 className="text-center w-auto alert">
+      <div className="d-flex justify-content-center flex-column  container bg-success-subtle py-5 rounded rounded-4 px-4">
+        <h2 className="text-center w-auto mb-5">
           The booking has been confirmed.
         </h2>
         {date && <p className="fs-4">Date: {date}</p>}
