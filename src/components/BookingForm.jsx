@@ -22,7 +22,6 @@ function BookingForm({ availableTimes, dispatchTimes, submitForm }) {
   useEffect(() => {
     const validateDate = () => {
       const { isValid, error } = isValidDate(date, todayDate, nextYear);
-      console.log(isValid, error);
       if (isValid) {
         setErrors((prev) => {
           const newState = { ...prev };
@@ -41,7 +40,6 @@ function BookingForm({ availableTimes, dispatchTimes, submitForm }) {
   useEffect(() => {
     const validateTime = () => {
       const { isValid, error } = isValidTime(time, availableTimes);
-      console.log(isValid, error);
       if (isValid) {
         setErrors((prev) => {
           const newState = { ...prev };
@@ -60,7 +58,6 @@ function BookingForm({ availableTimes, dispatchTimes, submitForm }) {
   useEffect(() => {
     const validateGuests = () => {
       const { isValid, error } = isValidGuests(number);
-      console.log(isValid, error);
       if (isValid) {
         setErrors((prev) => {
           const newState = { ...prev };
@@ -77,7 +74,6 @@ function BookingForm({ availableTimes, dispatchTimes, submitForm }) {
   useEffect(() => {
     const validateOccasion = () => {
       const { isValid, error } = isValidOccasion(occasion);
-      console.log(isValid, error);
       if (isValid) {
         setErrors((prev) => {
           const newState = { ...prev };
@@ -90,6 +86,7 @@ function BookingForm({ availableTimes, dispatchTimes, submitForm }) {
     };
     validateOccasion();
   }, [occasion]);
+
   return (
     <form
       className="row"

@@ -24,13 +24,13 @@ export const isValidTime = (time, availableTimes) => {
 export const isValidGuests = (number) => {
   let error;
   if (!number) {
-    error = "Number of guests is Required";
+    error = "Guests' Number is Required";
   } else if (isNaN(number)) {
-    error = "Number of guests must be a number";
+    error = "Guests' Number must be a number";
   } else if (number < 1) {
-    error = "Number of guests can't be less than 1";
+    error = "Guests' Number can't be less than 1";
   } else if (number > 10) {
-    error = "Number of guests can't be more than 10";
+    error = "Guests' Number can't be more than 10";
   }
   return error ? { isValid: false, error } : { isValid: true };
 };
@@ -45,7 +45,7 @@ export const isValidOccasion = (occasion) => {
     occasion !== "Anniversary" &&
     occasion !== "Other"
   ) {
-    error = "Occasion must be Birthday, Anniversary or Other ";
+    error = "Occasion must be Birthday, Anniversary or Other";
   }
 
   return error ? { isValid: false, error } : { isValid: true };
